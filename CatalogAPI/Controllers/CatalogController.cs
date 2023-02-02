@@ -9,7 +9,7 @@ namespace CatalogAPI.Controllers;
 
 public class CatalogController : ControllerBase
 {
-
+    //"test"
     private readonly CatalogDbContext _context;
 
     public CatalogController(CatalogDbContext context)
