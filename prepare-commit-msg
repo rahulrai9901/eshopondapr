@@ -1,0 +1,17 @@
+#!/bin/sh
+
+commit_message=`head -n1 $1`
+
+echo "$commit_message"
+
+if ! echo "$commit_message" | grep -E '^(fixup|squash)! .*' > /dev/null 2>&1; then
+  if ! echo "$commit_message" | grep -E '^(feat|fix|docs|style|refactor|perf|test|chore)(\([a-zA-Z0-9-]+\))?: .*' > /dev/null 2>&1; then
+    echo "ERROR: Commit message does not adhere to conventional commit format. See https://www.conventionalcommits.org/ for more information."
+    exit 1
+  fi
+fi
+
+exit 0
+
+
+exit 0
