@@ -1,8 +1,0 @@
-﻿
-namespace CatalogAPI.ViewModel;
-
-public record ItemViewModel(
-    int Id,
-    string Name,
-    decimal Price,
-    string PictureFileName);
