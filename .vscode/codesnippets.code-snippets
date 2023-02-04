@@ -1,0 +1,99 @@
+{
+	// Place your eShopOnDapr workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Create .NET Controller Class": {
+		"scope": "csharp",
+		"prefix": "asp.w.c",
+		"body": [
+			"namespace ${1:Name}.Controller;",
+			"",
+			"[Route(\"api/[controller]\")]",
+			"[ApiController]",
+			"public class ${1:Name}Controller : ControllerBase",
+			"{",
+			"\tprivate readonly ILogger<${1:Name}Controller> _logger;",
+			"\tpublic ${1:Name}Controller(ILogger<${1:Name}Controller> _logger)",
+			"\t{",
+			"\t\t_logger = logger;",
+			"\t}",
+			"}",
+		],
+		"description": "ASP.NET Core Web Api - Creates a controller"
+	},
+	"ASP Web API controller method": {
+		"scope": "csharp",
+		"prefix": "aspw.c.gm",
+		"body": [
+			"",
+			"[HttpGet]",
+			"[Route()]",
+			"public async Task<IActionResult> Get()",
+			"{",
+			"",
+			"\treturn Ok();",
+			"",
+			"}",
+		],
+		"description": "ASP.NET Core Web Api - a controller method"
+	},
+
+	"Add global file Using" : {
+		"scope": "csharp",
+		"prefix": "aspw.gfr",
+		"body": [
+			"",
+			"global using Microsoft.AspNetCore.Mvc;",
+			"global using System.Net;",
+			"global using Dapr;",
+			"global using Dapr.Client;",
+			"global using HealthChecks.UI.Client;",
+			"global using Microsoft.OpenApi.Models;",
+			"global using System.Net;",
+			"global using System.ComponentModel.DataAnnotations;",
+			"global using Microsoft.AspNetCore.Authorization;"
+		],
+		"description": "Add global file refrence"
+	},
+
+	"dapr command" : {
+		"scope": "csharp",
+		"prefix": "dapr.r",
+		"body": [
+			"",
+			"dapr run /",
+			"--app-id ${1:Name}/",
+			"--app-port ${2:port} /",
+			"--config '../config.yaml' /", 
+			"--components-path '../components' /", 
+			"dotnet run"
+		],
+		"description": "dapr run command"
+	},
+	"connect redis container" : {
+		"scope": "csharp",
+		"prefix": "docker.c.r",
+		"body": [
+			"",
+			"docker exec -it ${1:containerId} redis-cli",
+			"HGETALL ${2:KEYNAME}"
+		],
+		"description": "connect redis container"
+	}
+
+
+}
