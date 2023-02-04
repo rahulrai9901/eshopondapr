@@ -92,6 +92,20 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/src/BasketAPI/BasketAPI.csproj"
             }
+        },
+        {
+            "appId": "basket",
+            "appPort": 5199,
+            "label": "dapr-debug",
+            "type": "dapr",
+            "componentsPath": "/Users/rahulrai/Desktop/eShopOnDapr/deploy/dapr/components",
+            "config": "/Users/rahulrai/Desktop/eShopOnDapr/deploy/dapr/config/config.yaml",
+            "dependsOn": "build"
+        },
+        {
+            "appId": "basket",
+            "label": "daprd-down",
+            "type": "daprd-down"
         }
     ]
 }

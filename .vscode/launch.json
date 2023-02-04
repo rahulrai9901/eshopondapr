@@ -34,6 +34,27 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/src/BasketAPI/BasketAPI.csproj"
             }
+        },
+        {
+            "name": ".NET Core Launch (web) with Dapr",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dapr-debug",
+            "program": "${workspaceFolder}/src/BasketAPI/bin/Debug/net7.0/BasketAPI.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/BasketAPI",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "postDebugTask": "daprd-down"
         }
     ]
 }
