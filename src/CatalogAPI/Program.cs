@@ -29,10 +29,13 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/pics"
 });
 
+app.UseCloudEvents();
 
-app.UseAuthorization();
+
+//app.UseAuthorization();
 
 app.MapControllers();
+app.MapSubscribeHandler();
 
 try
 {

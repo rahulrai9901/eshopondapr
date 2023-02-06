@@ -45,7 +45,6 @@
     <None Remove="AspNetCore.HealthChecks.SqlServer" />
     <None Remove="AspNetCore.HealthChecks.UI.Client" />
     <None Remove="Migrations\" />
-    <None Remove="Dockerfile" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -54,5 +53,10 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Pics\" />
     <Folder Include="Migrations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eShopEvent\eShopEvent.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ global using Microsoft.AspNetCore.Mvc;
 global using System.Net;
 global using Dapr.Client;
 global using Dapr;
-// global using HealthChecks.UI.Client;
+global using HealthChecks.UI.Client;
 global using Microsoft.OpenApi.Models;
 global using System.Net;
 global using System.ComponentModel.DataAnnotations;

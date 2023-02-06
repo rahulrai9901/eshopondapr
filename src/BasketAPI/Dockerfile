@@ -11,10 +11,10 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["BasketAPI/BasketAPI.csproj", "src/BasketAPI/"]
+COPY ["src/BasketAPI/BasketAPI.csproj", "src/BasketAPI/"]
 RUN dotnet restore "src/BasketAPI/BasketAPI.csproj"
 COPY . .
-WORKDIR "/src/BasketAPI"
+WORKDIR "/src/src/BasketAPI"
 RUN dotnet build "BasketAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

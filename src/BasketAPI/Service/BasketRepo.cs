@@ -37,7 +37,7 @@ public class BasketRepo : IBasketRepo
             StateStoreName, userId, new CustomerBasket());
         }
         catch(Exception ex){
-        _logger.LogInformation("Basket item persisted successfully.");
+            _logger.LogError("Failed while creating the basket", ex);
         }
     }
 }
