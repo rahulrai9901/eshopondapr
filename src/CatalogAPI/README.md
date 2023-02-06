@@ -2,7 +2,7 @@
 
 
 **Note**: Run command from src folder
->docker image build -t "eshopdapr/catalog.api:latest" -f CatalogAPI/Dockerfile .
+>docker image build -t "eshopdapr/catalog.api:latest" -f src/CatalogAPI/Dockerfile .
 
 **Note**:  Safe way to use local docker image in kubernetes
 Make sure <b>catalog.yaml</b>  Deployment has below setting.
