@@ -1,50 +1,48 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: basket-cm
-  # namespace: {{ .Values.namespace }}
+  name: ordering-cm
   namespace: eshopondapr
   labels:
     app: eshop
-    service: basket
+    service: ordering
 data:
   ASPNETCORE_ENVIRONMENT: Development
   ASPNETCORE_URLS: http://0.0.0.0:80
-  # IdentityUrl: http://identity-api
-  # IdentityUrlExternal: http://{{ .Values.hostName}}/identity
-  # SeqServerUrl: http://seq
+  #IdentityUrl: http://identity-api
+  #IdentityUrlExternal: http://{{ .Values.hostName}}:30008
+  #SeqServerUrl: http://seq
 
 ---
 
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: basket
-  # namespace: {{ .Values.namespace }}
+  name: ordering
   namespace: eshopondapr
   labels:
     app: eshop
-    service: basket
+    service: ordering
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: basket
+      service: ordering
   template:
     metadata:
       labels:
         app: eshop
-        service: basket
+        service: ordering
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "basket-api"
+        dapr.io/app-id: "ordering-api"
         dapr.io/app-port: "80"
         dapr.io/config: "dapr-config"
         dapr.io/log-as-json: "true"
     spec:
       containers:
-        - name: basket-api
-          image: eshopdapr/basket.api:latest
+        - name: ordering-api
+          image: eshopdapr/ordering.api:latest
           imagePullPolicy: Never
           ports:
             - name: api-http
@@ -52,7 +50,7 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: basket-cm
+                name: ordering-cm
           readinessProbe:
             httpGet:
               path: /hc
@@ -65,16 +63,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: basket-api
-  # namespace: {{ .Values.namespace }}
+  name: ordering-api
   namespace: eshopondapr
   labels:
     app: eshop
-    service: basket
+    service: ordering
 spec:
   ports:
     - name: http
       port: 80
       targetPort: api-http
   selector:
-    service: basket
+    service: ordering

@@ -52,12 +52,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: catalog-cm
-          # readinessProbe:
-          #   httpGet:
-          #     path: /hc
-          #     port: 80
-          #   initialDelaySeconds: 5
-          #   periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /hc
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
 
 ---
 
@@ -86,4 +86,3 @@ spec:
       name: dapr-grpc
   selector:
     service: catalog
-  type: LoadBalancer
