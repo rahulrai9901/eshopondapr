@@ -4,9 +4,27 @@ version: '3.4'
 
 services:
   basketapi:
-    image: basketapi
+    image: ${DOCKER_REGISTRY-}orderingapi
     build:
       context: .
       dockerfile: src/BasketAPI/Dockerfile
     ports:
       - 5150:5150
+
+  orderingapi:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: src/OrderingAPI/Dockerfile
+
+  catalogapi:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: src/OrderingAPI/Dockerfile
+  healthwebstatus:
+    image: ${DOCKER_REGISTRY-}healthwebstatus
+    build:
+      context: .
+      dockerfile: src/HealthWebstatus/Dockerfile
+

@@ -58,5 +58,8 @@
     <ProjectReference Include="..\eShopEvent\eShopEvent.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\eShopHealthCheck\eShopHealthCheck.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

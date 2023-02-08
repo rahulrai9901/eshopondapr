@@ -1,4 +1,7 @@
 ﻿using CatalogAPI;
+using HealthChecks.UI.Client;
+using eShopHealthCheck;
+
 var appName = "Catalog API";
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,6 +39,7 @@ app.UseCloudEvents();
 
 app.MapControllers();
 app.MapSubscribeHandler();
+app.MapCustomHealthChecks("/hc", "/liveness", UIResponseWriter.WriteHealthCheckUIResponse);
 
 try
 {

@@ -19,11 +19,11 @@ public class IntegrationEventController : ControllerBase
         _logger = logger;
     }
 
-    [HttpPost("UserCheckoutAccepted")]
-    [Topic(DAPR_PUBSUB_NAME, "UserCheckoutAcceptedIntegrationEvent")]
-    public async Task HandleAsync(UserCheckoutAcceptedIntegrationEvent integrationEvent)
-    {
-        _logger.LogInformation("Recieved UserCheckoutAcceptedIntegrationEvent - ", integrationEvent);
-    }
+    //[HttpPost("UserCheckoutAccepted")]
+    //[Topic(DAPR_PUBSUB_NAME, "UserCheckoutAcceptedIntegrationEvent")]
+    //public async Task HandleAsync(UserCheckoutAcceptedIntegrationEvent integrationEvent)
+    //{
+    //    _logger.LogInformation("Recieved UserCheckoutAcceptedIntegrationEvent - ", integrationEvent);
+    //}
 }
 
