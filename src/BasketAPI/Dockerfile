@@ -11,6 +11,8 @@ USER appuser
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["src/eShopEvent/eShopEvent.csproj", "src/eShopEvent/"]
+COPY ["src/eShopHealthCheck/eShopHealthCheck.csproj", "src/eShopHealthCheck/"]
 COPY ["src/BasketAPI/BasketAPI.csproj", "src/BasketAPI/"]
 RUN dotnet restore "src/BasketAPI/BasketAPI.csproj"
 COPY . .
